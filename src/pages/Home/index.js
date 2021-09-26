@@ -2,7 +2,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import homeFigure from "../../assets/homeFigure.svg";
 import Button from "@mui/material/Button";
-import { Container, Content } from "./style";
+import { Container, Content, Background } from "./style";
 import { useHistory, Link } from "react-router-dom";
 
 const Home = ({ isAutenticated }) => {
@@ -37,6 +37,7 @@ const Home = ({ isAutenticated }) => {
         </div>
       </Content>
       <Footer />
+      <Background />
     </Container>
   );
 };

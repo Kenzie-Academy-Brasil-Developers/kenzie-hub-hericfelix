@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+  background-color: var(--white);
   box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: center;

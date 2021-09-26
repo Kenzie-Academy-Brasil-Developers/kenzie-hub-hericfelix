@@ -7,21 +7,36 @@ export const Container = styled.div`
   height: calc(100vh - 50px);
 `;
 
+export const Background = styled.div`
+  @media (min-width: 768px) {
+    position: absolute;
+    z-index: -2;
+    height: 100vw;
+    width: 100vw;
+    min-width: 90vh;
+    min-height: 98vh;
+    left: -40%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--light-blue);
+    border-radius: 50%;
+  }
+`;
+
 export const Content = styled.div`
   width: 100%;
   max-width: 1170px;
   flex: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   figure {
-    img {
-      width: 600px;
-    }
+    display: none;
   }
   div {
     background-color: var(--dark-blue);
     height: 350px;
+    max-height: 60vh;
     width: 335px;
     border-radius: 40px;
     color: var(--white);
@@ -48,6 +63,16 @@ export const Content = styled.div`
       }
       a:hover {
         filter: brightness(1.5);
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    justify-content: space-between;
+    figure {
+      display: block;
+      background-color: transparent;
+      img {
+        width: 600px;
       }
     }
   }
