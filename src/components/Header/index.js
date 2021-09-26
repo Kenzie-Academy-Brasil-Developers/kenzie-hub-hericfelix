@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { Container, List } from "./style";
 
-const Header = ({ isAutenticated }) => {
+const Header = ({ isAutenticated, setIsAutenticated }) => {
   return (
     <Container>
       <div>
@@ -13,13 +13,13 @@ const Header = ({ isAutenticated }) => {
           {isAutenticated ? (
             <>
               <li>
-                <Link>Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <Link>Portfolio</Link>
+                <Link to="/">Portfolio</Link>
               </li>
               <li>
-                <Link>My Profile</Link>
+                <Link to="/profile">My Profile</Link>
               </li>
               <li>
                 <Link>Logout</Link>
@@ -28,16 +28,16 @@ const Header = ({ isAutenticated }) => {
           ) : (
             <>
               <li>
-                <Link>Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <Link>Portfolio</Link>
+                <Link to="/">Portfolio</Link>
               </li>
               <li>
-                <Link>Register</Link>
+                <Link to="/register">Register</Link>
               </li>
               <li>
-                <Link>Login</Link>
+                <Link to="/login">Login</Link>
               </li>
             </>
           )}

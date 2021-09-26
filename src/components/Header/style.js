@@ -10,12 +10,13 @@ export const Container = styled.div`
   flex: 0;
   height: 70px;
   padding: 5px;
+  margin-bottom: 10px;
   div {
     max-width: 1170px;
     display: flex;
     justify-content: space-between;
     flex: 1;
-    height: 100%;
+    height: 70px;
     figure {
       height: 100%;
       img {
