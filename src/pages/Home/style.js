@@ -49,6 +49,7 @@ export const Content = styled.div`
     flex-direction: column;
     justify-content: self-start;
     align-items: center;
+    box-shadow: var(--shadow);
 
     h2 {
       background-color: transparent;

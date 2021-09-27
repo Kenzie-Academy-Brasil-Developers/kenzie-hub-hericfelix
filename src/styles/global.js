@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     --white: #FEFFFE;
     --light-blue: #017BFF;
     --dark-blue: #09053C;
+    --shadow: 7px 10px 6px rgba(0, 0, 0, 0.25);;
 }
 
 html {
@@ -28,7 +29,8 @@ ol, ul {
   list-style: none;
 }
 
-button {
+
+button, select {
     cursor: pointer;
 }
 

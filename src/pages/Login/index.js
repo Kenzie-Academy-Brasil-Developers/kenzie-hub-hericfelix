@@ -25,15 +25,17 @@ const Login = ({ isAutenticated, setIsAutenticated }) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const handleLogin = (data) => {
-    console.log(data);
     api
       .post("/sessions", data)
       .then((res) => {
-        console.log(res);
         const { token } = res.data;
-        console.log(token);
+        const { id } = res.data.user;
+
         localStorage.setItem("@KenzieHub:token", JSON.stringify(token));
+        localStorage.setItem("@KenzieHub:id", id);
+
         setIsAutenticated(true);
+
         return history.push("/profile");
       })
       .catch((_) => toast.error("Wrong e-mail or password!"));

@@ -9,9 +9,11 @@ export const CardBox = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   div {
     gap: 0px;
-    width: 100;
+    width: 100%;
     height: 40px;
     border-radius: 5px 5px 0 0;
     background-color: var(--light-blue);
@@ -21,7 +23,12 @@ export const CardBox = styled.div`
     font-weight: 600;
   }
   p {
-    padding-top: 20px;
+    padding-top: 5px;
+  }
+  svg {
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: red;
   }
   @media (min-width: 768px) {
     cursor: pointer;

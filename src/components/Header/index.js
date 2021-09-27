@@ -24,7 +24,7 @@ const Header = ({ isAutenticated, setIsAutenticated }) => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/">Portfolio</Link>
+                <Link to="/">Portfolios</Link>
               </li>
               <li>
                 <Link to="/profile">My Profile</Link>
@@ -39,7 +39,7 @@ const Header = ({ isAutenticated, setIsAutenticated }) => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/">Portfolio</Link>
+                <Link to="/">Portfolios</Link>
               </li>
               <li>
                 <Link to="/register">Register</Link>

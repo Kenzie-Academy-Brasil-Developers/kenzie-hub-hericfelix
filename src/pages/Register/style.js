@@ -44,6 +44,7 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  box-shadow: var(--shadow);
   h2 {
     background-color: transparent;
     font-weight: 600;
@@ -85,7 +86,8 @@ export const TextAreaBox = styled.div`
     background-color: transparent;
     font-weight: 500;
     span {
-      color: red;
+      color: var(--dark-blue);
+      font-size: 0.9rem;
     }
   }
   textarea {
@@ -95,5 +97,8 @@ export const TextAreaBox = styled.div`
     padding: 5px;
     padding-top: 7px;
     width: 195px;
+  }
+  textarea:focus {
+    outline: none;
   }
 `;

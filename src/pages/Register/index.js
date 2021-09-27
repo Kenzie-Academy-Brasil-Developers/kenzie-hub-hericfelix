@@ -116,7 +116,8 @@ const Register = ({ isAutenticated }) => {
           </SelectBox>
           <TextAreaBox>
             <p>
-              Bio {!!errors.bio?.message && <span>{errors.bio?.message}</span>}
+              Bio{" "}
+              {!!errors.bio?.message && <span> - {errors.bio?.message}</span>}
             </p>
             <textarea rows="4" {...register("bio")}></textarea>
           </TextAreaBox>

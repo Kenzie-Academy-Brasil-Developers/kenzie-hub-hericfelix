@@ -4,11 +4,13 @@ export const Container = styled.div`
   text-align: left;
   color: var(--white);
   margin-bottom: 10px;
+  max-width: 195px;
   p {
     background-color: transparent;
     font-weight: 500;
     span {
-      color: red;
+      color: var(--dark-blue);
+      font-size: 0.9rem;
     }
   }
 `;
