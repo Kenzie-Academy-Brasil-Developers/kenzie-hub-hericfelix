@@ -32,7 +32,10 @@ const Routes = () => {
     <ThemeProvider theme={theme}>
       <Switch>
         <Route exact path="/">
-          <Home isAutenticated={isAutenticated} />
+          <Home
+            setIsAutenticated={setIsAutenticated}
+            isAutenticated={isAutenticated}
+          />
         </Route>
         <Route path="/login">
           <Login

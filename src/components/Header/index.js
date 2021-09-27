@@ -30,7 +30,7 @@ const Header = ({ isAutenticated, setIsAutenticated }) => {
                 <Link to="/profile">My Profile</Link>
               </li>
               <li>
-                <Link onClick={handleLogout}>Logout</Link>
+                <p onClick={handleLogout}>Logout</p>
               </li>
             </>
           ) : (

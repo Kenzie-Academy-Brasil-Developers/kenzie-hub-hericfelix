@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import { Container, Content, Background } from "./style";
 import { useHistory, Link } from "react-router-dom";
 
-const Home = ({ isAutenticated }) => {
+const Home = ({ isAutenticated, setIsAutenticated }) => {
   const history = useHistory();
 
   const handleClick = () => {
@@ -14,7 +14,10 @@ const Home = ({ isAutenticated }) => {
 
   return (
     <Container>
-      <Header isAutenticated={isAutenticated} />
+      <Header
+        setIsAutenticated={setIsAutenticated}
+        isAutenticated={isAutenticated}
+      />
       <Content>
         <figure>
           <img src={homeFigure} alt="homeFigure.svg" />

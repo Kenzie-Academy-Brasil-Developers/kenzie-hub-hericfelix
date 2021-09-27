@@ -38,6 +38,12 @@ export const List = styled.ul`
       color: var(--light-blue);
       font-weight: 500;
     }
+    p {
+      font-size: 0.9rem;
+      color: var(--light-blue);
+      font-weight: 500;
+      background-color: transparent;
+    }
   }
 
   @media (min-width: 768px) {
@@ -54,6 +60,13 @@ export const List = styled.ul`
         font-size: 1.3rem;
         transition-duration: 0.5s;
       }
+      p {
+        box-sizing: border-box;
+        white-space: nowrap;
+        word-wrap: none;
+        font-size: 1.3rem;
+        transition-duration: 0.5s;
+      }
     }
 
     li:hover {
@@ -61,6 +74,9 @@ export const List = styled.ul`
       margin-bottom: 3px;
 
       & a {
+        filter: drop-shadow(8px 8px 4px black);
+      }
+      & p {
         filter: drop-shadow(8px 8px 4px black);
       }
     }
