@@ -33,7 +33,4 @@ export const Form = styled.form`
     font-weight: 600;
     font-size: 1.9rem;
   }
-  :nth-child(1n) {
-    margin-bottom: 10px;
-  }
 `;

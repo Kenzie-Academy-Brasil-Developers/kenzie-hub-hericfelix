@@ -20,6 +20,7 @@ export const Background = styled.div`
     transform: translateY(-50%);
     background-color: var(--light-blue);
     border-radius: 50%;
+    overflow: hidden;
   }
 `;
 

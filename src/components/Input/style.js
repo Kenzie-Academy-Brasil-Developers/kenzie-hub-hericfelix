@@ -7,6 +7,9 @@ export const Container = styled.div`
   p {
     background-color: transparent;
     font-weight: 500;
+    span {
+      color: red;
+    }
   }
 `;
 

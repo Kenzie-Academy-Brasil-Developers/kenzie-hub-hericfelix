@@ -8,24 +8,26 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router";
+import api from "../../services/api";
+import { toast } from "react-toastify";
 
-const Register = () => {
+const Register = ({ isAutenticated }) => {
   const history = useHistory();
 
   const schema = yup.object().shape({
-    name: yup.string().required(),
-    email: yup.string().email("Invalid E-mail").required(),
+    name: yup.string().required("Field required"),
+    email: yup.string().email("Invalid E-mail").required("Field required"),
     password: yup
       .string()
       .min("6", "Must have at least 6 characters")
-      .required(),
+      .required("Field required"),
     confirm_password: yup
       .string()
-      .oneOf([yup.ref("password")])
-      .required(),
-    contact: yup.string().required(),
-    course_module: yup.string().required(),
-    bio: yup.string().required(),
+      .oneOf([yup.ref("password")], "Passwords don't match")
+      .required("Field required"),
+    contact: yup.string().required("Field required"),
+    course_module: yup.string().required("Field required"),
+    bio: yup.string().required("Field required"),
   });
 
   const {
@@ -34,34 +36,69 @@ const Register = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const handleRegister = (data) => {
-    console.log(data);
-    history.push("/login");
+  const handleRegister = ({
+    email,
+    password,
+    name,
+    contact,
+    bio,
+    course_module,
+  }) => {
+    const user = { email, password, name, contact, bio, course_module };
+    api
+      .post("/users", user)
+      .then((_) => {
+        toast.success("Account created!");
+        history.push("/login");
+      })
+      .catch((err) => toast.error("E-mail already used, try another!"));
   };
 
   return (
     <Container>
-      <Header />
+      <Header isAutenticated={isAutenticated} />
       <Content>
         <Form onSubmit={handleSubmit(handleRegister)}>
           <h2>Register</h2>
-          <Input register={register} name="name" label="Name" />
-          <Input register={register} name="email" label="E-mail" />
+          <Input
+            register={register}
+            name="name"
+            label="Name"
+            error={errors.name?.message}
+          />
+          <Input
+            register={register}
+            name="email"
+            label="E-mail"
+            error={errors.email?.message}
+          />
           <Input
             type="password"
             register={register}
             name="password"
             label="Password"
+            error={errors.password?.message}
           />
           <Input
             type="password"
             register={register}
             name="confirm_password"
             label="Confirm Password"
+            error={errors.confirm_password?.message}
           />
-          <Input register={register} name="contact" label="Contact" />
+          <Input
+            register={register}
+            name="contact"
+            label="Contact"
+            error={errors.contact?.message}
+          />
           <SelectBox>
-            <p>Course Module</p>
+            <p>
+              Course Module{" "}
+              {!!errors.course_module?.message && (
+                <span>{errors.course_module?.message}</span>
+              )}
+            </p>
             <select {...register("course_module")}>
               <option value="Primeiro módulo (Introdução ao Frontend)">
                 Primeiro módulo (Introdução ao Frontend)
@@ -78,7 +115,9 @@ const Register = () => {
             </select>
           </SelectBox>
           <TextAreaBox>
-            <p>Bio</p>
+            <p>
+              Bio {!!errors.bio?.message && <span>{errors.bio?.message}</span>}
+            </p>
             <textarea rows="4" {...register("bio")}></textarea>
           </TextAreaBox>
           <Button

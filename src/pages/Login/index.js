@@ -6,11 +6,16 @@ import { Container, Content, Form } from "./style";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "@mui/material";
+import api from "../../services/api";
+import { Redirect, useHistory } from "react-router";
+import { toast } from "react-toastify";
 
-const Login = () => {
+const Login = ({ isAutenticated, setIsAutenticated }) => {
+  const history = useHistory();
+
   const schema = yup.object().shape({
-    email: yup.string().required(),
-    password: yup.string().required(),
+    email: yup.string().required("Field required"),
+    password: yup.string().required("Field required"),
   });
 
   const {
@@ -21,19 +26,40 @@ const Login = () => {
 
   const handleLogin = (data) => {
     console.log(data);
+    api
+      .post("/sessions", data)
+      .then((res) => {
+        console.log(res);
+        const { token } = res.data;
+        console.log(token);
+        localStorage.setItem("@KenzieHub:token", JSON.stringify(token));
+        setIsAutenticated(true);
+        return history.push("/profile");
+      })
+      .catch((_) => toast.error("Wrong e-mail or password!"));
   };
+
+  if (isAutenticated) {
+    return <Redirect to="/profile" />;
+  }
   return (
     <Container>
-      <Header />
+      <Header isAutenticated={isAutenticated} />
       <Content>
         <Form onSubmit={handleSubmit(handleLogin)}>
           <h2>Login</h2>
-          <Input register={register} name="email" label="E-mail" />
+          <Input
+            register={register}
+            name="email"
+            label="E-mail"
+            error={errors.email?.message}
+          />
           <Input
             type="password"
             register={register}
             name="password"
             label="Password"
+            error={errors.password?.message}
           />
           <Button
             color="secondary"

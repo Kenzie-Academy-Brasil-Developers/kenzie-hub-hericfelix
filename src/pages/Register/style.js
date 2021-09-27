@@ -62,6 +62,9 @@ export const SelectBox = styled.div`
   p {
     background-color: transparent;
     font-weight: 500;
+    span {
+      color: red;
+    }
   }
   select {
     border-radius: 5px;
@@ -81,6 +84,9 @@ export const TextAreaBox = styled.div`
   p {
     background-color: transparent;
     font-weight: 500;
+    span {
+      color: red;
+    }
   }
   textarea {
     border-radius: 5px;

@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { Container, List } from "./style";
+import { useHistory } from "react-router-dom";
 
 const Header = ({ isAutenticated, setIsAutenticated }) => {
+  const history = useHistory();
+
+  const handleLogout = () => {
+    setIsAutenticated(false);
+    localStorage.clear();
+    history.push("/");
+  };
   return (
     <Container>
       <div>
@@ -22,7 +30,7 @@ const Header = ({ isAutenticated, setIsAutenticated }) => {
                 <Link to="/profile">My Profile</Link>
               </li>
               <li>
-                <Link>Logout</Link>
+                <Link onClick={handleLogout}>Logout</Link>
               </li>
             </>
           ) : (
