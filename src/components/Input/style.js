@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   text-align: left;
   color: var(--white);
+  margin-bottom: 10px;
   p {
     background-color: transparent;
     font-weight: 500;

@@ -2,11 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
   height: 50px;
-  transform: translatex(-50%);
   background-color: var(--dark-blue);
   padding: 6px;
   div {

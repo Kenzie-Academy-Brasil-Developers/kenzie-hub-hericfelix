@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - 50px);
+  height: 100vh;
 `;
 
 export const Background = styled.div`
@@ -30,6 +30,7 @@ export const Content = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 20px;
   figure {
     display: none;
   }
