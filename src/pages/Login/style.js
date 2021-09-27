@@ -26,7 +26,7 @@ export const Form = styled.form`
   padding: 35px;
   display: flex;
   flex-direction: column;
-  justify-content: self-start;
+  justify-content: space-between;
   align-items: center;
   h2 {
     background-color: transparent;

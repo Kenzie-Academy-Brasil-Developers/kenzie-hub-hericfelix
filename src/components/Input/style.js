@@ -11,10 +11,12 @@ export const Container = styled.div`
 
 export const InputBox = styled.div`
   border-radius: 5px;
-  border: 3px solid var(--dark-blue);
+  border: 2px solid var(--dark-blue);
   background-color: var(--white);
   padding: 5px;
+  padding-top: 7px;
   width: 100%;
+  height: 40px;
 
   input {
     background-color: transparent;
