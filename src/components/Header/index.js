@@ -14,7 +14,7 @@ const Header = ({ isAutenticated, setIsAutenticated }) => {
   return (
     <Container>
       <div>
-        <figure>
+        <figure onClick={() => history.push("/")}>
           <img src={logo} alt="Logo KenzieHub"></img>
         </figure>
         <List>

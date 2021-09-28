@@ -1,4 +1,11 @@
-import { AddCard, CardBox, AddNewTechBox, Form, SelectBox } from "./style";
+import {
+  AddCard,
+  CardBox,
+  AddNewTechBox,
+  Form,
+  SelectBox,
+  Container,
+} from "./style";
 import Card from "../Card";
 import Input from "../Input";
 import { MdAddCircle } from "react-icons/md";
@@ -7,7 +14,9 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { Button } from "@mui/material";
+import { AiFillCloseCircle } from "react-icons/ai";
 import api from "../../services/api";
+import { toast } from "react-toastify";
 
 const TechBox = () => {
   const [isAddingTech, setIsAddingTech] = useState(false);
@@ -46,8 +55,8 @@ const TechBox = () => {
           },
         }
       )
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then((_) => toast.success("Tech added!"))
+      .catch((_) => toast.error("You've already added that tech."));
     setIsAddingTech(false);
     loadTechs();
   };
@@ -57,7 +66,7 @@ const TechBox = () => {
   };
 
   return (
-    <>
+    <Container>
       <CardBox>
         <h2>My Technologies</h2>
         <div>
@@ -78,7 +87,7 @@ const TechBox = () => {
       {isAddingTech && (
         <AddNewTechBox>
           <Form onSubmit={handleSubmit(handleNewTechnology)}>
-            <p onClick={() => setIsAddingTech(false)}>x</p>
+            <AiFillCloseCircle onClick={() => setIsAddingTech(false)} />
             <h2>Add New Tech</h2>
             <Input
               register={register}
@@ -110,7 +119,7 @@ const TechBox = () => {
           </Form>
         </AddNewTechBox>
       )}
-    </>
+    </Container>
   );
 };
 

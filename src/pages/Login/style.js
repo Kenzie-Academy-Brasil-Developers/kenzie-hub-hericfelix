@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const appearSlowly = keyframes`
+from {
+  opacity:0;
+}
+to {
+  opacity: 1;
+}
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -29,6 +38,7 @@ export const Form = styled.form`
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--shadow);
+  animation: ${appearSlowly} 1.3s;
   h2 {
     background-color: transparent;
     font-weight: 600;

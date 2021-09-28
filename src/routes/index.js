@@ -10,7 +10,7 @@ const Routes = () => {
   const [isAutenticated, setIsAutenticated] = useState(false);
 
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("@KenzieHub:token"));
+    const token = localStorage.getItem("@KenzieHub:token");
 
     if (token) {
       return setIsAutenticated(true);
@@ -44,7 +44,7 @@ const Routes = () => {
           />
         </Route>
         <Route path="/register">
-          <Register />
+          <Register isAutenticated={isAutenticated} />
         </Route>
         <Route path="/profile">
           <Profile

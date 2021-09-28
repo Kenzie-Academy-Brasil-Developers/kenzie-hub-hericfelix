@@ -11,18 +11,23 @@ export const Container = styled.div`
   flex: 0;
   height: 70px;
   padding: 5px;
-  margin-bottom: 10px;
   div {
     max-width: 1170px;
     display: flex;
     justify-content: space-between;
     flex: 1;
-    height: 70px;
+    height: 45px;
     figure {
       height: 100%;
+      cursor: pointer;
       img {
         height: 100%;
       }
+    }
+  }
+  @media (min-width: 768px) {
+    div {
+      height: 70px;
     }
   }
 `;

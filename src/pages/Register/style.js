@@ -1,4 +1,26 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const appearFromRight = keyframes`
+from {
+  opacity:0;
+  transform: translateX(50px)
+}
+to {
+  opacity: 1;
+  transform: translateX(0px)
+}
+`;
+
+const appearFromLeft = keyframes`
+from {
+  opacity:0;
+  transform: translateX(-50px)
+}
+to {
+  opacity: 1;
+  transform: translateX(0px)
+}
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -8,6 +30,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
+  box-sizing: border-box;
   width: 100%;
   max-width: 1170px;
   flex: 1;
@@ -15,6 +38,7 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 20px;
+  padding-top: 20px;
   figure {
     display: none;
   }
@@ -27,6 +51,7 @@ export const Content = styled.div`
     figure {
       display: block;
       background-color: transparent;
+      animation: ${appearFromRight} 1.3s;
       img {
         width: 600px;
       }
@@ -45,6 +70,7 @@ export const Form = styled.form`
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--shadow);
+  animation: ${appearFromLeft} 1.3s;
   h2 {
     background-color: transparent;
     font-weight: 600;

@@ -1,5 +1,29 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
+const appearFromRight = keyframes`
+from {
+  opacity:0;
+  transform: translateX(50px)
+}
+to {
+  opacity: 1;
+  transform: translateX(0px)
+}
+`;
+
+export const Container = styled.div`
+  width: 100%;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  @media (min-width: 768px) {
+    padding: 40px;
+    height: calc(100vh - 100px);
+  }
+`;
 export const CardBox = styled.div`
   width: 100%;
   max-width: 730px;
@@ -7,8 +31,8 @@ export const CardBox = styled.div`
   padding-top: 20px;
   display: flex;
   flex-direction: column;
-  flex: 1;
   border-radius: 7px;
+  animation: ${appearFromRight} 1.3s;
   h2 {
     background-color: transparent;
     color: var(--white);
@@ -19,10 +43,18 @@ export const CardBox = styled.div`
   > div {
     background-color: var(--dark-blue);
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     border-radius: 0 0 7px 7px;
-    padding: 30px;
-    gap: 40px;
+    padding: 10px;
+    gap: 10px;
+  }
+  @media (min-width: 768px) {
+    > div {
+      justify-content: flex-start;
+      padding: 30px;
+      gap: 40px;
+    }
   }
 `;
 export const AddCard = styled.div`
@@ -50,6 +82,7 @@ export const AddNewTechBox = styled.div`
   width: 100%;
   height: 100%;
   top: 0;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.4);
 `;
 
@@ -59,7 +92,7 @@ export const Form = styled.form`
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--light-blue);
-  height: 300px;
+  height: 330px;
   max-height: 60vh;
   width: 300px;
   border-radius: 40px;
@@ -70,6 +103,14 @@ export const Form = styled.form`
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  svg {
+    color: red;
+    font-size: 1.7rem;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 15px;
+    cursor: pointer;
+  }
   h2 {
     background-color: transparent;
     font-weight: 600;

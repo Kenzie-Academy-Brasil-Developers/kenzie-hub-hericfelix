@@ -7,7 +7,7 @@ import { Button } from "@mui/material";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 
@@ -51,8 +51,16 @@ const Register = ({ isAutenticated }) => {
         toast.success("Account created!");
         history.push("/login");
       })
-      .catch((err) => toast.error("E-mail already used, try another!"));
+      .catch((err) =>
+        toast.error("E-mail already in use, please user another one!")
+      );
   };
+
+  if (isAutenticated) {
+    return <Redirect to="/profile" />;
+  }
+
+  console.log(isAutenticated);
 
   return (
     <Container>

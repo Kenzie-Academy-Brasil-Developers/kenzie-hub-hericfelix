@@ -1,4 +1,27 @@
+import { keyframes } from "styled-components";
 import styled from "styled-components";
+
+const appearFromRight = keyframes`
+from {
+  opacity:0;
+  transform: translateX(50px)
+}
+to {
+  opacity: 1;
+  transform: translateX(0px)
+}
+`;
+
+const appearFromLeft = keyframes`
+from {
+  opacity:0;
+  transform: translateX(-50px)
+}
+to {
+  opacity: 1;
+  transform: translateX(0px)
+}
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -50,6 +73,7 @@ export const Content = styled.div`
     justify-content: self-start;
     align-items: center;
     box-shadow: var(--shadow);
+    animation: ${appearFromRight} 1.3s;
 
     h2 {
       background-color: transparent;
@@ -76,6 +100,7 @@ export const Content = styled.div`
     figure {
       display: block;
       background-color: transparent;
+      animation: ${appearFromLeft} 1.3s;
       img {
         width: 600px;
       }

@@ -8,6 +8,10 @@ export const GlobalStyle = createGlobalStyle`
     --shadow: 7px 10px 6px rgba(0, 0, 0, 0.25);;
 }
 
+body {
+  background-color: var(--white);
+}
+
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -22,7 +26,6 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure {
   margin: 0;
   padding: 0;
   font-weight: normal;
-  background-color: var(--white);
 }
 
 ol, ul {
